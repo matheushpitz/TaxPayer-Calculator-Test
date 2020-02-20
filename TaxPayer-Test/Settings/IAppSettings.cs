@@ -9,5 +9,6 @@ namespace TaxPayer.Settings
     public interface IAppSettings
     {
         void Register(IServiceCollection services);
+        string getDefaultConnection();
     }
 }

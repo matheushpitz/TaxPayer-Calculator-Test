@@ -25,17 +25,18 @@ namespace TaxPayer
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {          
 
             services.AddSingleton<IAppSettings, AppSettings>();
 
             IAppSettings settings = services.BuildServiceProvider().GetService<IAppSettings>();
-            settings.Register(services);
+            settings.Register(services);            
 
-            services.AddSwaggerGen(c => 
+            services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("V1", new Info { Title = "TaxPayer API", Version = "V1" });
+                c.SwaggerDoc("v1", new Info { Title = "TaxPayer API", Version = "v1" });
             });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -48,12 +49,12 @@ namespace TaxPayer
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => 
+            app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/V1/swagger.json", "TaxPayer API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaxPayer API");
             });
 
-            app.UseMvc();
+            app.UseMvc();            
         }
     }
 }
