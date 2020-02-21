@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System;
 using System.Threading.Tasks;
 using TaxPayer.Database.Context;
 
