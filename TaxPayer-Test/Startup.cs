@@ -24,7 +24,11 @@ namespace TaxPayer
             services.AddSingleton<IAppSettings, AppSettings>();
 
             IAppSettings settings = services.BuildServiceProvider().GetService<IAppSettings>();
-            settings.Register(services);            
+            settings.Register(services);
+
+            services.AddCors(options => {
+                options.AddPolicy("CORSPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +45,8 @@ namespace TaxPayer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CORSPolicy");
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>

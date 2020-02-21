@@ -19,13 +19,13 @@ namespace TaxPayer.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> Add(AddPayerViewModel data)
         {
-            bool success = await this._service.Add(data.minimumSalary, data.payers);
+            bool success = await this._service.Add(data.MinimumSalary, data.Payers);
             if(success)
             {
                 return Ok(new
                 {
                     success,
-                    data = data.payers,
+                    data = data.Payers,
                     message = "Contribuintes cadastrados com sucesso"
                 });
             } else

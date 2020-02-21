@@ -4,7 +4,7 @@ namespace TaxPayer.ViewModel
 {
     public class AddPayerViewModel
     {
-        public decimal minimumSalary { get; set; }
-        public IEnumerable<PayerViewModel> payers { get; set; }
+        public decimal MinimumSalary { get; set; }
+        public IEnumerable<PayerViewModel> Payers { get; set; }
     }
 }
